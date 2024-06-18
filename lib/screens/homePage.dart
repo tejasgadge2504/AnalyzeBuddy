@@ -1,182 +1,224 @@
+import 'package:analyzebuddy/screens/addPatient.dart';
+import 'package:analyzebuddy/screens/updateDetails.dart';
 import 'package:flutter/material.dart';
+import 'package:analyzebuddy/src/constants/colors.dart';
+import 'package:analyzebuddy/assets/Names.dart';
 
-import '../src/constants/colors.dart';
 
-class homeScreen extends StatefulWidget {
-  const homeScreen({super.key});
 
-  @override
-  State<homeScreen> createState() => _homeScreenState();
-}
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-class _homeScreenState extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
 
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("AnalyzeBuddy",style: TextStyle(fontWeight: FontWeight.w700,color: HeadingTextColor),),
-        backgroundColor: appBarColor.shade700,
-      ),
-      body: Container(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Hello , Tejas",style:TextStyle(fontWeight: FontWeight.w700,fontSize: 25,color: PrimaryTextColor)),
-              Text("Have a nice day!",style: TextStyle(color: SecondaryTextColor.shade800,fontWeight: FontWeight.w500),),
-              SizedBox(height: size.height*0.05,),
+              Padding(
+                padding: const EdgeInsets.only(left: 18.0),
+                child: Text("Hello !!",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600,color: appBlue),),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 18.0),
+                child: Text("Dr. ${DoctorName}",style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600,color: appBlue),),
+              ),
+              SizedBox(height: 25,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
 
-              Text("Your Recent Score",style: TextStyle(color: SecondaryTextColor.shade800,fontWeight: FontWeight.w500),),
-              SizedBox(height: size.height*0.02,),
-
-              Container(
-                height: size.height*0.2,
-                width: size.width*0.5,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: appBarColor.shade700,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Mathematics",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w700,fontSize: 23),),
-                          Text("16/20",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w900,fontSize: 28),)
+                    onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AddPatient()));
+                      // AddPatient();
+                      // print("Tapped");
+                    },
+                    child:
+                    Container(
+                      decoration: BoxDecoration(
+                        color: ContainerColor.shade200,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: const Offset(
+                              3.0,
+                              3.0,
+                            ),
+                            blurRadius: 3.0,
+                            spreadRadius: 2.0,
+                          ), //BoxShadow
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: const Offset(0.0, 0.0),
+                            blurRadius: 0.0,
+                            spreadRadius: 0.0,
+                          ), //BoxShadow
                         ],
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(width: size.width*0.02,),
-              SizedBox(height: size.height*0.05,),
-              
-              Row(
-                children: [
-                  Text("Your Score",style: TextStyle(color: SecondaryTextColor.shade800,fontWeight: FontWeight.w500),),
-                  SizedBox(width: size.width*0.5,),
-                  InkWell(onTap: (){
+                      width: 150,
+                      height: 150,
+                      child:
+                      Column(
 
-                  },
-                  child: Text("view all",style: TextStyle(color: SecondaryTextColor.shade800,fontWeight: FontWeight.w500),)),
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.add,color: Colors.white,size: 40,),
+                          Text("Add Patient",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 18),),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 20,),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => updateDetails()));
+
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: ContainerColor.shade200,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: const Offset(
+                              3.0,
+                              3.0,
+                            ),
+                            blurRadius: 3.0,
+                            spreadRadius: 2.0,
+                          ), //BoxShadow
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: const Offset(0.0, 0.0),
+                            blurRadius: 0.0,
+                            spreadRadius: 0.0,
+                          ), //BoxShadow
+                        ],
+                      ),
+                      width: 150,
+                      height: 150,
+                      child:
+                      Column(
+
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.change_circle_outlined,color: Colors.white,size: 40,),
+                          Text("Update Details",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 18),),
+                        ],
+                      ),
+                    ),
+                  ),
+
                 ],
               ),
-              SizedBox(height: size.height*0.05,),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
+              SizedBox(height: size.height*0.03,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
 
-                  children: [
+                children: [
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AddPatient()));
 
-                    Container(
-                      height: size.height*0.2,
-                      width: size.width*0.5,
+                    },
+                    child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: PrimaryAscentColor.shade300,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Mathematics",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w700,fontSize: 23),),
-                                Text("16/20",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w900,fontSize: 28),)
-                              ],
+                        color: ContainerColor.shade200,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: const Offset(
+                              3.0,
+                              3.0,
                             ),
-                          ],
-                        ),
+                            blurRadius: 3.0,
+                            spreadRadius: 2.0,
+                          ), //BoxShadow
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: const Offset(0.0, 0.0),
+                            blurRadius: 0.0,
+                            spreadRadius: 0.0,
+                          ), //BoxShadow
+                        ],
+                      ),
+                      width: 150,
+                      height: 150,
+                      child:
+                      Column(
+
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.add,color: Colors.white,size: 40,),
+                          Text("Add Patient",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 18),),
+                        ],
                       ),
                     ),
-                    SizedBox(width: size.width*0.02,),
-                    Container(
-                      height: size.height*0.2,
-                      width: size.width*0.5,
+                  ),
+
+                  SizedBox(width:20,),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AddPatient()));
+
+                    },
+                    child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: PrimaryAscentColor.shade300,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Mathematics",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w700,fontSize: 23),),
-                                Text("16/20",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w900,fontSize: 28),)
-                              ],
+                        color: ContainerColor.shade200,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            offset: const Offset(
+                              3.0,
+                              3.0,
                             ),
-                          ],
-                        ),
+                            blurRadius: 3.0,
+                            spreadRadius: 2.0,
+                          ), //BoxShadow
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: const Offset(0.0, 0.0),
+                            blurRadius: 0.0,
+                            spreadRadius: 0.0,
+                          ), //BoxShadow
+                        ],
+                      ),
+                      width: 150,
+                      height: 150,
+                      child:
+                      Column(
+
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.add,color: Colors.white,size: 40,),
+                          Text("Add Patient",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 18),),
+                        ],
                       ),
                     ),
-                    SizedBox(width: size.width*0.02,),
-                    Container(
-                      height: size.height*0.2,
-                      width: size.width*0.5,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: PrimaryAscentColor.shade300,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Mathematics",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w700,fontSize: 23),),
-                                Text("16/20",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w900,fontSize: 28),)
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: size.width*0.02,),
-                    Container(
-                      height: size.height*0.2,
-                      width: size.width*0.5,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: PrimaryAscentColor.shade300,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Mathematics",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w700,fontSize: 23),),
-                                Text("16/20",style: TextStyle(color: HeadingTextColor,fontWeight: FontWeight.w900,fontSize: 28),)
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: size.width*0.02,),
-                  ],
-                ),
+                  ),
+
+                ],
               ),
-              
 
             ],
           ),
         ),
-
       ),
     );
   }

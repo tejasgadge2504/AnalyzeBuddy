@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "316360685149",
+    "project_id": "doctor-s-desk-6c762",
+    "storage_bucket": "doctor-s-desk-6c762.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316360685149:android:4d7384b85bced5d48fffb4",
+        "android_client_info": {
+          "package_name": "com.example.analyzebuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgqEVR8reuRhlPgD4BxzntkYKtGZlPD98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

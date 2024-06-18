@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
+// ==========Colors====================
+const appYellow = Color.fromRGBO(255, 187, 89,60);
 
-// const AppGray = Colors.grey;
+const appPurple = Color.fromRGBO(140, 82, 255, 60);
 
-const HeadingTextColor = Colors.white;
+const appBlue = Color.fromRGBO(56, 182, 255, 60);
 
-const appBarColor = Colors.lightGreenAccent;
-// shade700
 
-const PrimaryTextColor = Colors.black;
+const appOcreYellow = Color.fromRGBO(169, 85, 52, 60);
 
-const SecondaryTextColor = Colors.grey;
-// shade800
+const ContainerColor = Colors.purple;
 
-const PrimaryAscentColor = Colors.blue;
-// shade700
 
-const SecondaryAscentColor= Colors.deepOrange;
-// shade600
 
-const DividerColor = Colors.grey;
-// shade300
+
+
